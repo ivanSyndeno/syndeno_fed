@@ -39,6 +39,7 @@ services:
 
   grafana:
     image: grafana/grafana-oss
+    user: "742:742"
     container_name: grafana
     networks:
      syndeno-network:
