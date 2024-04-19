@@ -87,7 +87,7 @@ services:
       - web-root:/var/www/certbot
     depends_on:
       - nginx
-    command: certonly --webroot --webroot-path=/var/www/certbot --email tls.certificates@syndeno.com --agree-tos --staging -d monitoring.gc.syndeno.net -d prom.gc.syndeno.net -d alert.gc.syndeno.net
+#    command: certonly --webroot --webroot-path=/var/www/certbot --email tls.certificates@syndeno.com --agree-tos --staging -d monitoring.gc.syndeno.net -d prom.gc.syndeno.net -d alert.gc.syndeno.net
 
 ###### Network ######
 
@@ -106,61 +106,61 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/monitoring-fed/syndeno_fedv1/syndeno-monitoring/certbot/etc
+      device: /home/monitoring-fed/syndeno_fed/syndeno-monitoring/certbot/etc
       o: bind
 
   certbot-var:
     driver: local
     driver_opts:
       type: none
-      device: /home/monitoring-fed/syndeno_fedv1/syndeno-monitoring/certbot/var
+      device: /home/monitoring-fed/syndeno_fed/syndeno-monitoring/certbot/var
       o: bind
 
   web-root:
     driver: local
     driver_opts:
       type: none
-      device: /home/monitoring-fed/syndeno_fedv1/syndeno-monitoring/views
+      device: /home/monitoring-fed/syndeno_fed/syndeno-monitoring/views
       o: bind
 
   def-conf:
     driver: local
     driver_opts:
       type: none
-      device: /home/monitoring-fed/syndeno_fedv1/syndeno-monitoring/nginx-conf
+      device: /home/monitoring-fed/syndeno_fed/syndeno-monitoring/nginx-conf
       o: bind
   
   ale-data:
     driver: local
     driver_opts:
       type: none
-      device: /home/monitoring-fed/syndeno_fedv1/syndeno-monitoring/alertmanager/data
+      device: /home/monitoring-fed/syndeno_fed/syndeno-monitoring/alertmanager/data
       o: bind
 
   ale-conf:
     driver: local
     driver_opts:
       type: none
-      device: /home/monitoring-fed/syndeno_fedv1/syndeno-monitoring/alertmanager/conf
+      device: /home/monitoring-fed/syndeno_fed/syndeno-monitoring/alertmanager/conf
       o: bind
 
   gra-conf:
     driver: local
     driver_opts:
       type: none
-      device: /home/monitoring-fed/syndeno_fedv1/syndeno-monitoring/grafana/conf
+      device: /home/monitoring-fed/syndeno_fed/syndeno-monitoring/grafana/conf
       o: bind
 
   gra-data:
     driver: local
     driver_opts:
       type: none
-      device: /home/monitoring-fed/syndeno_fedv1/syndeno-monitoring/grafana/data
+      device: /home/monitoring-fed/syndeno_fed/syndeno-monitoring/grafana/data
       o: bind
   
   pro-conf:
     driver: local
     driver_opts:
       type: none
-      device: /home/monitoring-fed/syndeno_fedv1/syndeno-monitoring/prometheus
+      device: /home/monitoring-fed/syndeno_fed/syndeno-monitoring/prometheus
       o: bind
