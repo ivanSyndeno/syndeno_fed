@@ -1,0 +1,47 @@
+global:
+  resolve_timeout: 5m
+    #  http_config: {}
+  #http_config:
+    #    follow_redirects: false
+    #   enable_http2: false
+  #smtp_hello: localhost
+  #smtp_require_tls: true
+  #pagerduty_url: https://events.pagerduty.com/v2/enqueue
+  #opsgenie_api_url: https://api.opsgenie.com/
+  #wechat_api_url: https://qyapi.weixin.qq.com/cgi-bin/
+  #victorops_api_url: https://alert.victorops.com/integrations/generic/20131114/alert/
+route:
+  group_by:
+  - alertname
+  - client
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 3h
+  receiver: "null"
+
+  routes:
+  - receiver: "null"
+    repeat_interval: 1d
+    match:
+      severity: "critical"
+
+
+receivers:
+#- name: email
+#  email_configs:
+#  - send_resolved: false
+#    to: alerts@syndeno.com
+#    from: alert@syndeno.net
+#    hello: localhost
+#    smarthost: mx.syndeno.net:587
+#    auth_username: alert@syndeno.net
+#    auth_password: <secret>
+#    auth_identity: alert@syndeno.net
+#    headers:
+#      From: alert@syndeno.net
+#      Subject: '{{ template "email.default.subject" . }}'
+#      To: alerts@syndeno.com
+#    html: '{{ template "email.default.html" . }}'
+#    require_tls: true
+- name: "null"
+#templates: []
